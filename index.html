@@ -1276,23 +1276,32 @@ function renderHistoricoJustificativas(s){
   el.innerHTML=html||'<b>Nenhuma justificativa registrada para esta loja.</b>';
 }
 
-function carregarHistoricoRemoto(s){
-  const idLoja=String(s[14]||s[0]),callback='rota86Historico_'+Date.now()+'_'+Math.floor(Math.random()*10000);
-  const script=document.createElement('script');
-  let terminou=false;
-  const limpar=()=>{delete window[callback];script.remove();};
-  const timer=setTimeout(()=>{if(terminou)return;terminou=true;limpar();document.getElementById('jStatus').textContent='Sheets indisponível agora; exibindo registros deste aparelho.';},10000);
-  window[callback]=dados=>{
-    if(terminou)return;terminou=true;clearTimeout(timer);limpar();
+async function carregarHistoricoRemoto(s,tentativa=0){
+  const idLoja=String(s[14]||s[0]);
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),12000);
+  try{
+    const url=APPS_SCRIPT_URL+'?action=list&idLoja='+encodeURIComponent(idLoja)+'&_='+Date.now();
+    const resposta=await fetch(url,{cache:'no-store',signal:controller.signal});
+    if(!resposta.ok)throw new Error('HTTP '+resposta.status);
+    const dados=await resposta.json();
+    if(!dados||!dados.ok)throw new Error(dados&&dados.erro||'Resposta inválida');
     if(curStore&&String(curStore[14]||curStore[0])===idLoja){
-      historicoRemotoAtual=dados&&dados.ok&&Array.isArray(dados.registros)?dados.registros:[];
+      historicoRemotoAtual=Array.isArray(dados.registros)?dados.registros:[];
       document.getElementById('jStatus').textContent='Conectado ao Google Sheets.';
+      document.getElementById('jStatus').style.color='var(--gray)';
       renderHistoricoJustificativas(curStore);
     }
-  };
-  script.onerror=()=>{if(terminou)return;terminou=true;clearTimeout(timer);limpar();document.getElementById('jStatus').textContent='Não foi possível consultar o Sheets agora.';};
-  script.src=APPS_SCRIPT_URL+'?action=list&idLoja='+encodeURIComponent(idLoja)+'&callback='+encodeURIComponent(callback)+'&_='+Date.now();
-  document.head.appendChild(script);
+  }catch(e){
+    if(tentativa<2){
+      if(curStore&&String(curStore[14]||curStore[0])===idLoja)
+        document.getElementById('jStatus').textContent='Sincronizando histórico com o Sheets...';
+      setTimeout(()=>{if(curStore&&String(curStore[14]||curStore[0])===idLoja)carregarHistoricoRemoto(curStore,tentativa+1);},1200*(tentativa+1));
+    }else if(curStore&&String(curStore[14]||curStore[0])===idLoja){
+      document.getElementById('jStatus').textContent='Registro enviado. O histórico será atualizado na próxima abertura.';
+      document.getElementById('jStatus').style.color='#e8a013';
+    }
+  }finally{clearTimeout(timer);}
 }
 
 async function enviarJustificativa(){
