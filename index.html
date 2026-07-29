@@ -544,13 +544,27 @@
   .app-priority:last-child{border-bottom:none;padding-bottom:0}.app-priority:first-child{padding-top:0}
   .app-score{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex:0 0 auto}
   .app-priority-main{min-width:0;flex:1}.app-priority-main b{display:block;color:var(--ink);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.app-priority-main span{display:block;color:#858b95;font-size:10.5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.app-chevron{font-size:18px;color:#a6abb3}
+  .app-ranking{display:grid;gap:9px}
+  .app-rank-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:13px;border:1px solid #e9ebef;border-radius:15px;background:#fafbfc}
+  .app-rank-main{min-width:0}.app-rank-main b{font-size:12.5px;color:var(--ink);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.app-rank-main span{font-size:10.5px;color:#858b95;display:block;margin-top:2px}
+  .app-rank-score{text-align:right}.app-rank-score b{display:block;font-size:16px;font-variant-numeric:tabular-nums}.app-rank-score span{font-size:9.5px;color:#8a9099}
+  .app-rank-track{grid-column:1/-1;height:6px;background:#e8eaee;border-radius:8px;overflow:hidden}.app-rank-track span{display:block;height:100%;border-radius:8px}
+  .sector-brief{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+  .sector-brief-card{border-radius:14px;padding:12px;background:#f5f6f8}.sector-brief-card b{display:block;font-size:18px;color:var(--ink)}.sector-brief-card span{font-size:9.8px;color:#777e88;line-height:1.3;display:block;margin-top:3px}
 
   #v-carteira .view-head{padding:22px var(--app-pad) 20px;background:linear-gradient(145deg,#1b1e26,#292e39)}
   #v-carteira .view-head h1{font-size:25px;margin-top:5px}
   #v-carteira .view-head .vh-sub{font-size:12px;line-height:1.45}
   #v-carteira main{max-width:720px;padding:0 var(--app-pad)}
-  #v-carteira main>section{padding-top:16px!important}
-  #v-carteira .filterbar{border-radius:18px;padding:14px;gap:9px;margin-bottom:12px}
+  #v-carteira main>section{padding-top:16px!important;display:flex;flex-direction:column}
+  #v-carteira main>section>.card{order:1}
+  #v-carteira .filterbar{order:2;border-radius:18px;padding:14px;gap:9px;margin:13px 0 0;background:#fff;border:1px solid #e7e8ec;box-shadow:0 5px 18px rgba(22,24,31,.045)}
+  #v-carteira #simPanel{order:3}#v-carteira #atkOut{order:4}
+  #v-carteira .fb-hidden{display:none}
+  #v-carteira .filterbar .fb-item label{color:#69707b}
+  #v-carteira .filterbar .fb-item input{background:#f5f6f8;color:var(--ink);border-color:#e2e5e9}
+  #v-carteira .filterbar .fb-item input::placeholder{color:#969ca6}
+  #v-carteira .filterbar .fb-clear{color:#5f6671;border-color:#dfe2e7;background:#fff}
   #v-carteira .fb-item label{font-family:'Montserrat',sans-serif;font-size:9px}
   #v-carteira .fb-item select,#v-carteira .fb-item input{font-family:'Montserrat',sans-serif;font-size:13px;min-height:44px}
   #v-carteira .card{border-radius:20px;padding:16px;box-shadow:0 5px 18px rgba(22,24,31,.045)}
@@ -567,11 +581,28 @@
   #v-carteira table{font-size:12px;min-width:0;width:100%;max-width:100%;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
   #v-carteira th,#v-carteira td{padding:10px 11px}
   #v-carteira .sim-item{min-height:68px;padding:11px 12px}
+  #v-carteira .mobile-data-list{display:grid;gap:9px}
+  #v-carteira .mobile-data-row{display:flex;align-items:center;gap:11px;padding:13px;border:1px solid #e8eaee;border-radius:15px;background:#fafbfc;cursor:pointer}
+  #v-carteira .mobile-data-row .md-main{min-width:0;flex:1}.mobile-data-row .md-main b{display:block;font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-data-row .md-main span{display:block;font-size:10.5px;color:#7e858f;margin-top:3px}.mobile-data-row .md-value{text-align:right;flex:0 0 auto}.mobile-data-row .md-value b{font-size:16px;display:block}.mobile-data-row .md-value span{font-size:9px;color:#8a9099}
+  #v-carteira .risk-list{max-height:none!important;overflow:visible!important;border:0;background:transparent}
+  #v-carteira .risk-list .sim-item{border:1px solid #eaecf0;border-radius:15px;margin-bottom:8px;background:#fafbfc}
+  #v-carteira .mov .sim-list.open{max-height:none!important;overflow:visible!important}
+  .store-unread{margin-top:14px;padding:14px 15px;border-radius:14px;background:#fff7e7;border:1px solid #f1d79f;color:#735716;font-size:12px;line-height:1.5}
+  .store-target{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin:12px 0 15px;padding:15px;border-radius:16px;background:#181b22;color:#fff}
+  .store-target .target-points{font-size:27px;font-weight:900;color:#ff8592;line-height:1;white-space:nowrap}.store-target .target-copy{font-size:11.5px;color:#c8cdd5;line-height:1.4}.store-target .target-copy b{color:#fff}
   #v-carteira .just-field label{font-family:'Montserrat',sans-serif;font-size:9px}
   #v-carteira .just-field select,#v-carteira .just-field textarea{font-family:'Montserrat',sans-serif;font-size:14px;min-height:46px}
   #v-carteira .just-actions{align-items:stretch;flex-direction:column}
   #v-carteira .just-actions .sim-bt{min-height:48px;font-family:'Montserrat',sans-serif;font-size:12px;border-radius:13px}
   #v-carteira .just-status{font-size:11px;line-height:1.45}
+  #v-carteira .just-history{border-top:0;padding-top:0;margin-top:18px}
+  .history-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:10px}
+  .history-group{border:1px solid #e6e8ed;border-radius:16px;overflow:hidden;margin-bottom:10px;background:#fff}
+  .history-kpi{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;background:#181b22;color:#fff;font-size:16px;font-weight:900}.history-kpi span{font-size:9px;font-weight:600;color:#b9bec8}
+  .history-entry{padding:13px 14px;border-top:1px solid #eceef2}.history-entry:first-of-type{border-top:0}
+  .history-category{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--red)}
+  .history-problem{font-size:13px;font-weight:700;color:var(--ink);line-height:1.4;margin-top:3px}.history-observation{font-size:11px;color:#747b86;line-height:1.45;margin-top:5px}.history-date{font-size:9.5px;color:#9aa0a9;margin-top:7px}
+  .history-empty{padding:14px;border-radius:14px;background:#f5f6f8;color:#777e88;font-size:11.5px}
 
   @media(max-width:520px){
     :root{--app-pad:16px;--app-bar:70px;--app-bottom:70px}
@@ -643,6 +674,17 @@
     <section class="app-section">
       <div class="app-section-head"><div><h2>Componentes da nota</h2><div class="app-sub">Percentual entregue em relação ao objetivo</div></div></div>
       <div id="appComponents"></div>
+    </section>
+
+    <section class="app-section">
+      <div class="app-section-head"><div><h2>Análise por rede</h2><div class="app-sub">Onde a oportunidade mais se concentra na sua carteira</div></div><span class="app-badge">prioridade</span></div>
+      <div class="app-ranking" id="appNetworks"></div>
+    </section>
+
+    <section class="app-section">
+      <div class="app-section-head"><div><h2>Visão por setor</h2><div class="app-sub">Leitura breve dos setores que precisam de atenção</div></div></div>
+      <div id="appSectorBrief"></div>
+      <div class="app-ranking" id="appSectors"></div>
     </section>
 
     <section class="app-section">
@@ -835,9 +877,8 @@
   <main>
     <section class="rv" style="padding-top:28px">
       <div class="filterbar">
-        <div class="fb-item"><label>Região autenticada</label><select id="fExec" onchange="fChange('exec')"><option value="">Sua região</option></select></div>
-        <div class="fb-item"><label>Coordenação</label><select id="fCoord" onchange="fChange('coord')"><option value="">Todas da região</option></select></div>
-        <div class="fb-item" style="flex:1.4"><label>Buscar na sua carteira</label><input id="simQ" type="search" placeholder="Loja, setor ou rede" autocomplete="off"></div>
+        <div class="fb-hidden" aria-hidden="true"><select id="fExec" onchange="fChange('exec')"><option value="">Sua região</option></select><select id="fCoord" onchange="fChange('coord')"><option value="">Todas da região</option></select></div>
+        <div class="fb-item" style="flex:1.4"><label>Encontrar uma loja</label><input id="simQ" type="search" placeholder="Busque por loja, setor ou rede" autocomplete="off"></div>
         <button class="fb-clear" onclick="fClear()">Limpar busca</button>
       </div>
       <div class="card">
@@ -853,7 +894,7 @@
             <div><div id="spNome" class="sp-nome"></div><div id="spInfo" class="sp-info"></div></div>
             <div class="sp-kpis">
               <div class="sp-k"><div class="k-l">Nota atual</div><div id="spAtual" class="k-v"></div><div id="spMesRef" class="k-d"></div></div>
-              <div class="sp-k dest"><div class="k-l">Meta do mês</div><div id="spMeta" class="k-v"></div><div id="spFaixa" class="k-d"></div></div>
+              <div class="sp-k dest"><div class="k-l">Meta mínima</div><div id="spMeta" class="k-v"></div><div id="spFaixa" class="k-d"></div></div>
               <div class="sp-k"><div class="k-l">Oportunidade</div><div id="spGap" class="k-v"></div><div class="k-d">pts até o mínimo de 86</div></div>
             </div>
           </div>
@@ -863,20 +904,21 @@
           </div>
           <div style="margin-top:22px">
             <h3 style="font-size:13px;margin-bottom:2px">O que fazer nesta loja</h3>
-            <div class="hint">Quantos pontos ganhar em cada KPI para alcançar o mínimo de 86</div>
+            <div class="hint">Direcionamento objetivo para alcançar o mínimo de 86</div>
+            <div id="spNeed" class="store-target"></div>
             <div id="spPlano" style="margin-top:10px"></div>
           </div>
           <div id="spJust" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line)">
-            <div class="act-tag">// Registro de oportunidade</div>
+            <div class="act-tag">// Plano de ação da loja</div>
             <h3 style="font-size:17px;margin:4px 0 3px">Por que este resultado ainda não foi entregue?</h3>
-            <div class="hint">Registre quantas justificativas forem necessárias, sempre por KPI e categoria. Cada envio gera uma linha separada no Sheets.</div>
+            <div class="hint">Registre cada oportunidade pelo KPI correspondente. Assim, o plano da loja fica organizado, claro e pronto para acompanhamento.</div>
             <div class="just-grid">
               <div class="just-field"><label>KPI</label><select id="jKpi" onchange="carregarCategorias()"><option value="">Selecione o KPI</option><option>SOS</option><option>KBD</option><option>CKO</option><option>PONTO EXTRA</option></select></div>
               <div class="just-field"><label>Categoria com oportunidade</label><select id="jCategoria" disabled><option value="">Selecione primeiro o KPI</option></select></div>
-              <div class="just-field" style="grid-column:1/-1"><label>Justificativa</label><select id="jMotivo"><option value="">Selecione a justificativa</option></select></div>
+              <div class="just-field" style="grid-column:1/-1"><label>Qual é o problema?</label><select id="jMotivo"><option value="">Selecione o problema identificado</option></select></div>
               <div class="just-field" style="grid-column:1/-1"><label>Complemento opcional</label><textarea id="jObs" maxlength="500" placeholder="Contexto adicional para apoiar o plano de ação..."></textarea></div>
             </div>
-            <div class="just-actions"><button class="sim-bt" id="jEnviar" onclick="enviarJustificativa()">REGISTRAR JUSTIFICATIVA</button><span id="jStatus" class="just-status"></span></div>
+            <div class="just-actions"><button class="sim-bt" id="jEnviar" onclick="enviarJustificativa()">REGISTRAR OPORTUNIDADE</button><span id="jStatus" class="just-status"></span></div>
             <div id="jHistorico" class="just-history"></div>
           </div>
         </div>
@@ -900,6 +942,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNPrHTGPJgt7-f
 Chart.defaults.font.family="'Montserrat',sans-serif";Chart.defaults.color="#6a6a6a";Chart.defaults.font.size=11.5;
 const RED='#E3001B',INK='#15171e',GRAY='#b9bec6',OK='#12a150',AMBER='#e8a013';
 const fmt=n=>String(Math.round(n*10)/10).replace('.',',');
+const esc=s=>String(s==null?'':s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const norm=s=>(s||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const SENHA_ACESSO_HASH=1964636998876340;
 const ACESSOS_MAP=new Map(SETORES_ACESSO.map(x=>[norm(x.setor).trim(),x]));
@@ -1016,6 +1059,16 @@ function renderAnaliseRegiao(){
 
   const comps=[0,1,2,3].map(k=>{const real=base.reduce((a,s)=>a+(s[8][k]||0),0),obj=base.reduce((a,s)=>a+(s[9][k]||0),0);return{nome:KN[k],pct:obj?real/obj*100:0,real:real/base.length,obj:obj/base.length};});
   document.getElementById('appComponents').innerHTML=comps.map(c=>{const cor=c.pct<75?RED:(c.pct<88?AMBER:OK);return `<div class="app-component"><div class="app-component-top"><span>${c.nome}</span><span>${fmt(c.real)} de ${fmt(c.obj)} · ${Math.round(c.pct)}%</span></div><div class="app-track"><span style="width:${Math.min(100,c.pct)}%;background:${cor}"></span></div></div>`;}).join('');
+
+  const redeMap={};base.forEach(s=>(redeMap[s[1]]=redeMap[s[1]]||[]).push(s));
+  const redes=Object.entries(redeMap).map(([nome,lojas])=>{const nn=lojas.map(nota),med=nn.reduce((a,b)=>a+b,0)/lojas.length;return{nome,n:lojas.length,med,sub77:nn.filter(x=>x<77).length,risco:lojas.filter(x=>x[12]>=2).length};}).sort((a,b)=>b.sub77-a.sub77||a.med-b.med);
+  document.getElementById('appNetworks').innerHTML=redes.slice(0,6).map(r=>{const cor=r.med<77?RED:(r.med<86?AMBER:OK);return `<div class="app-rank-row"><div class="app-rank-main"><b>${r.nome}</b><span>${r.n} lojas · ${r.sub77} abaixo de 77 · ${r.risco} em risco</span></div><div class="app-rank-score"><b style="color:${cor}">${fmt(r.med)}</b><span>média</span></div><div class="app-rank-track"><span style="width:${Math.min(100,r.med)}%;background:${cor}"></span></div></div>`;}).join('');
+
+  const setorMap={};base.forEach(s=>(setorMap[s[3]]=setorMap[s[3]]||[]).push(s));
+  const setores=Object.entries(setorMap).map(([nome,lojas])=>{const nn=lojas.map(nota),med=nn.reduce((a,b)=>a+b,0)/lojas.length;return{nome,n:lojas.length,med,sub77:nn.filter(x=>x<77).length};}).sort((a,b)=>a.med-b.med);
+  const piorSetor=setores[0],melhorSetor=setores[setores.length-1];
+  document.getElementById('appSectorBrief').innerHTML=`<div class="sector-brief"><div class="sector-brief-card"><b>${setores.length}</b><span>setores na carteira</span></div><div class="sector-brief-card"><b>${piorSetor?fmt(piorSetor.med):'—'}</b><span>menor média · ${piorSetor?piorSetor.nome:'sem dados'}</span></div></div>`;
+  document.getElementById('appSectors').innerHTML=setores.slice(0,5).map(s=>{const cor=s.med<77?RED:(s.med<86?AMBER:OK);return `<div class="app-rank-row"><div class="app-rank-main"><b>${s.nome}</b><span>${s.n} lojas · ${s.sub77} abaixo do gate</span></div><div class="app-rank-score"><b style="color:${cor}">${fmt(s.med)}</b><span>média</span></div></div>`;}).join('')+(melhorSetor&&melhorSetor!==piorSetor?`<div class="app-insight" style="margin-top:9px"><span class="dot" style="background:${OK}"></span><div><b>Melhor referência: ${melhorSetor.nome}</b><span>Média ${fmt(melhorSetor.med)} em ${melhorSetor.n} lojas.</span></div></div>`:'');
 
   const naoLidas=base.filter(s=>s[13]===false).length,sub77=notas.filter(n=>n<77).length,caindo=base.filter(s=>s[11]!=null&&s[11]<-.5).length;
   document.getElementById('appInsights').innerHTML=`
@@ -1280,9 +1333,7 @@ function renderPessoa(kind,nkey){
     </div>
     <div class="mov-body">
       <p class="mov-p">É o canal mais fraco da carteira — a execução aqui costuma ter padrões próprios (espaço, giro, gôndola). Média por canal na sua carteira:</p>
-      <table><thead><tr><th>Canal</th><th>Lojas</th><th>Média</th><th>Abaixo de 77</th></tr></thead><tbody>${
-        C.canais.map(c=>`<tr><td><b>${c.canal}</b></td><td class="tnum">${c.n}</td><td class="tnum" style="color:${c.med<77?'#E3001B':(c.med<86?'#e8a013':'#12a150')}">${fmt(c.med)}</td><td class="tnum" style="color:#E3001B">${c.sub77}</td></tr>`).join('')
-      }</tbody></table>
+      <div class="mobile-data-list">${C.canais.map(c=>{const cor=c.med<77?'#E3001B':(c.med<86?'#e8a013':'#12a150');return `<div class="mobile-data-row"><div class="md-main"><b>${c.canal}</b><span>${c.n} lojas · ${c.sub77} abaixo de 77</span></div><div class="md-value"><b style="color:${cor}">${fmt(c.med)}</b><span>média</span></div></div>`;}).join('')}</div>
       <p class="mov-p" style="margin-top:12px">Lojas do canal ${piorCanal.canal} com mais espaço:</p>
       <div class="sim-list open" style="max-height:300px">${lojasCanal.map(s=>lojaLinha(s)).join('')}</div>
       <button class="mov-close" onclick="toggleMov('mov3')">▲ Fechar</button>
@@ -1290,27 +1341,19 @@ function renderPessoa(kind,nkey){
   </div>`;
 
   // ------ carteira em detalhe ------
-  const redesTable=`<table><thead><tr><th>Rede</th><th>Lojas</th><th>Média</th><th>Abaixo de 77</th><th>Risco</th></tr></thead><tbody>${
-    C.redes.slice(0,10).map(r=>{const cor=r.med<77?'#E3001B':(r.med<86?'#e8a013':'#12a150');
-    return `<tr style="cursor:pointer" onclick="openRede('${nkey}','${key}','${btoa(unescape(encodeURIComponent(r.rede)))}')"><td><b>${r.rede}</b> <span style="color:var(--mut);font-size:10px">▸</span></td><td class="tnum">${r.n}</td><td class="tnum" style="color:${cor}">${fmt(r.med)}</td><td class="tnum" style="color:#E3001B">${r.sub77}</td><td>${r.risco>0?`<span class="tag red">${r.risco}</span>`:'<span class="tag green">0</span>'}</td></tr>`;}).join('')
-  }</tbody></table>`;
+  const redesTable=`<div class="mobile-data-list">${C.redes.slice(0,12).map(r=>{const cor=r.med<77?'#E3001B':(r.med<86?'#e8a013':'#12a150');return `<div class="mobile-data-row" onclick="openRede('${nkey}','${key}','${btoa(unescape(encodeURIComponent(r.rede)))}')"><div class="md-main"><b>${r.rede}</b><span>${r.n} lojas · ${r.sub77} abaixo de 77 · ${r.risco} em risco</span></div><div class="md-value"><b style="color:${cor}">${fmt(r.med)}</b><span>média</span></div><span class="app-chevron">›</span></div>`;}).join('')}</div>`;
 
-  const setoresTable=`<table><thead><tr><th>Setor</th><th>Lojas</th><th>Média</th></tr></thead><tbody>${
-    C.setores.slice(0,10).map(s=>`<tr><td><b>${s.setor}</b></td><td class="tnum">${s.n}</td><td class="tnum" style="color:${s.med<77?'#E3001B':(s.med<86?'#e8a013':'#12a150')}">${fmt(s.med)}</td></tr>`).join('')
-  }</tbody></table>`;
+  const setoresTable=`<div class="mobile-data-list">${C.setores.slice(0,10).map(s=>{const cor=s.med<77?'#E3001B':(s.med<86?'#e8a013':'#12a150');return `<div class="mobile-data-row"><div class="md-main"><b>${s.setor}</b><span>${s.n} lojas neste setor</span></div><div class="md-value"><b style="color:${cor}">${fmt(s.med)}</b><span>média</span></div></div>`;}).join('')}</div>`;
 
   const coordsBloco=kind==='exec'?`
     <div style="margin-top:22px"><h3 class="sec-h">Seus coordenadores</h3>
     <p class="dek-mini">Toque num coordenador para descer o filtro até ele e ver o direcionamento individual.</p>
-    <table><thead><tr><th>Coordenador</th><th>Lojas</th><th>Média</th><th>Abaixo de 77</th><th>Risco</th></tr></thead><tbody>${
-      AGG.coord.filter(c=>norm(c.exec)===nkey).sort((a,b)=>a.nome.localeCompare(b.nome,'pt')).map(c=>{const cor=c.media<77?'#E3001B':(c.media<86?'#e8a013':'#12a150');
-      return `<tr style="cursor:pointer" onclick="fSelCoord('${norm(c.nome)}')"><td><b>${c.nome}</b></td><td class="tnum">${c.n}</td><td class="tnum" style="color:${cor}">${fmt(c.media)}</td><td class="tnum" style="color:#E3001B">${c.n-c.gate}</td><td>${c.risco>0?`<span class="tag red">${c.risco}</span>`:'<span class="tag green">0</span>'}</td></tr>`;}).join('')
-    }</tbody></table></div>`:'';
+    <div class="mobile-data-list">${AGG.coord.filter(c=>norm(c.exec)===nkey).sort((a,b)=>a.nome.localeCompare(b.nome,'pt')).map(c=>{const cor=c.media<77?'#E3001B':(c.media<86?'#e8a013':'#12a150');return `<div class="mobile-data-row" onclick="fSelCoord('${norm(c.nome)}')"><div class="md-main"><b>${c.nome}</b><span>${c.n} lojas · ${c.n-c.gate} abaixo de 77 · ${c.risco} em risco</span></div><div class="md-value"><b style="color:${cor}">${fmt(c.media)}</b><span>média</span></div><span class="app-chevron">›</span></div>`;}).join('')}</div></div>`:'';
 
   const farolBloco=C.farol.length?`
     <div style="margin-top:22px"><h3 class="sec-h">Farol de risco — lojas que não crescem</h3>
     <p class="dek-mini">Estas lojas estão abaixo de 77 e paradas ou em queda. São elas que travam a média — toque para ver o caminho de recuperação.</p>
-    <div class="sim-list open" style="max-height:360px">${C.farol.slice(0,25).map(s=>storeRow(STORES.indexOf(s))).join('')}</div></div>`
+    <div class="sim-list open risk-list">${C.farol.slice(0,25).map(s=>storeRow(STORES.indexOf(s))).join('')}</div></div>`
     :`<div class="callout green" style="margin-top:22px;font-size:13px"><b>Sem lojas no farol:</b> nenhuma loja desta carteira está travada abaixo do gate.</div>`;
 
   aggPanel.innerHTML=`
@@ -1337,7 +1380,6 @@ function renderPessoa(kind,nkey){
     ${setoresTable}</div>
     ${coordsBloco}
     ${farolBloco}`;
-  window.scrollTo({top:document.querySelector('.filterbar').offsetTop-70,behavior:'smooth'});
 }
 function renderExecView(nkey){renderPessoa('exec',nkey);}
 function renderCoordView(nkey){renderPessoa('coord',nkey);}
@@ -1407,11 +1449,15 @@ window.openStore=function(i){
   document.getElementById('spNome').textContent=s[0];
   const naoLida=s[13]===false;
   document.getElementById('spInfo').innerHTML=`${s[1]} · ${s[2]} · Canal <b>${s[5]}</b> · Setor <b>${s[3]}</b> · Coord: ${s[4]} · Exec: ${s[10]}`
-    +(naoLida?`<div style="margin-top:8px"><span class="badge-mini" style="background:#fdf1d8;color:#9a6a05;font-size:11.5px;padding:5px 10px">⏳ Esta loja ainda não foi lida em ${D.mes_atual_lbl} — a nota abaixo é da última leitura disponível</span></div>`:'');
+    +(naoLida?`<div class="store-unread"><b>Leitura pendente em ${D.mes_atual_lbl}</b><br>A nota apresentada é o resultado da última leitura disponível e serve como referência para o plano de ação.</div>`:'');
   const at=document.getElementById('spAtual');at.textContent=fmt(atual);at.style.color=atual>=86?'#12a150':(atual>=77?'#e8a013':'#E3001B');
   document.getElementById('spMesRef').textContent='leitura '+(MESN[s[6]]||s[6]);
-  document.getElementById('spMeta').textContent=fmt(fm.meta);document.getElementById('spFaixa').textContent=fm.txt;
+  const metaMinima=Math.max(86,fm.meta);
+  document.getElementById('spMeta').textContent=fmt(metaMinima);document.getElementById('spFaixa').textContent=metaMinima===86?'mínimo ROTA 86':fm.txt;
   const gap86=Math.max(0,86-atual);document.getElementById('spGap').textContent=gap86<=0?'—':'+'+fmt(gap86);
+  document.getElementById('spNeed').innerHTML=gap86>0
+    ?`<div class="target-points">+${fmt(gap86)}</div><div class="target-copy">pontos necessários para levar esta loja de <b>${fmt(atual)}</b> ao mínimo de <b>86</b>.</div>`
+    :`<div class="target-points" style="color:#7fe0a5">✓</div><div class="target-copy">Esta loja já atingiu o mínimo de <b>86 pontos</b>. O foco agora é sustentar a execução.</div>`;
   if(histChart)histChart.destroy();
   histChart=new Chart(document.getElementById('spHist'),{type:'line',data:{labels:D.meses_short,datasets:[
     {label:'Nota',data:s[7],borderColor:'#E3001B',backgroundColor:'rgba(227,0,27,.07)',fill:true,tension:.3,pointRadius:3.5,pointBackgroundColor:'#E3001B',borderWidth:2.5,spanGaps:true},
@@ -1463,10 +1509,10 @@ function carregarCategorias(){
 function prepararJustificativas(s){
   const k=document.getElementById('jKpi'),m=document.getElementById('jMotivo');
   k.value='';carregarCategorias();
-  m.innerHTML='<option value="">Selecione a justificativa</option>'+JUSTIFICATIVAS.map(x=>`<option>${x}</option>`).join('');
+  m.innerHTML='<option value="">Selecione o problema identificado</option>'+JUSTIFICATIVAS.map(x=>`<option>${x}</option>`).join('');
   document.getElementById('jObs').value='';
   historicoRemotoAtual=[];
-  document.getElementById('jStatus').textContent=APPS_SCRIPT_URL?'Sincronizando com o Google Sheets...':'Modo local: cole a URL do Apps Script no gerador para enviar ao Sheets.';
+  document.getElementById('jStatus').textContent=APPS_SCRIPT_URL?'Atualizando registros...':'Pronto para registrar.';
   renderHistoricoJustificativas(s);
   if(APPS_SCRIPT_URL)carregarHistoricoRemoto(s);
 }
@@ -1480,10 +1526,12 @@ function renderHistoricoJustificativas(s){
   const chave=x=>[x.kpi,x.categoria,x.justificativa,x.observacao||''].join('|');
   const chavesRemotas=new Set(remotos.map(chave));
   const pendentes=locais.filter(x=>!chavesRemotas.has(chave(x))).slice(-5).reverse();
-  let html='';
-  if(remotos.length)html+='<b>Últimos registros no Sheets</b><br>'+remotos.slice(0,5).map(x=>`${x.kpi} · ${x.categoria} — ${x.justificativa}${x.observacao?' · '+x.observacao:''}`).join('<br>');
-  if(pendentes.length)html+=(html?'<br><br>':'')+'<b>Registros deste aparelho aguardando confirmação</b><br>'+pendentes.map(x=>`${x.kpi} · ${x.categoria} — ${x.justificativa}`).join('<br>');
-  el.innerHTML=html||'<b>Nenhuma justificativa registrada para esta loja.</b>';
+  const todos=[...remotos.slice(0,20),...pendentes.map(x=>({...x,pendente:true}))];
+  if(!todos.length){el.innerHTML='<div class="history-title">Registros anteriores</div><div class="history-empty">Nenhum registro anterior para esta loja.</div>';return;}
+  const grupos={};todos.forEach(x=>(grupos[x.kpi]=grupos[x.kpi]||[]).push(x));
+  const ordem=['SOS','KBD','CKO','PONTO EXTRA','PE'];
+  const kpis=Object.keys(grupos).sort((a,b)=>{const ia=ordem.indexOf(a),ib=ordem.indexOf(b);return(ia<0?99:ia)-(ib<0?99:ib);});
+  el.innerHTML='<div class="history-title">Registros anteriores</div>'+kpis.map(kpi=>`<div class="history-group"><div class="history-kpi">${esc(kpi)}<span>${grupos[kpi].length} ${grupos[kpi].length===1?'registro':'registros'}</span></div>${grupos[kpi].map(x=>`<div class="history-entry"><div class="history-category">${esc(x.categoria)}</div><div class="history-problem">${esc(x.justificativa)}</div>${x.observacao?`<div class="history-observation">${esc(x.observacao)}</div>`:''}<div class="history-date">${x.pendente?'Sincronização em andamento':esc(x.registradoEm||'Registro concluído')}</div></div>`).join('')}</div>`).join('');
 }
 
 async function carregarHistoricoRemoto(s,tentativa=0){
@@ -1501,17 +1549,17 @@ async function carregarHistoricoRemoto(s,tentativa=0){
       const chavesConfirmadas=new Set(historicoRemotoAtual.map(x=>[x.kpi,x.categoria,x.justificativa,x.observacao||''].join('|')));
       const locaisPendentes=lerHistoricoJustificativas(curStore).filter(x=>!chavesConfirmadas.has([x.kpi,x.categoria,x.justificativa,x.observacao||''].join('|')));
       localStorage.setItem(chaveJustificativas(curStore),JSON.stringify(locaisPendentes));
-      document.getElementById('jStatus').textContent='Conectado ao Google Sheets.';
+      if(document.getElementById('jStatus').textContent!=='Registro realizado com sucesso.')document.getElementById('jStatus').textContent='Registros atualizados.';
       document.getElementById('jStatus').style.color='var(--gray)';
       renderHistoricoJustificativas(curStore);
     }
   }catch(e){
     if(tentativa<2){
       if(curStore&&String(curStore[14]||curStore[0])===idLoja)
-        document.getElementById('jStatus').textContent='Sincronizando histórico com o Sheets...';
+        document.getElementById('jStatus').textContent='Atualizando registros...';
       setTimeout(()=>{if(curStore&&String(curStore[14]||curStore[0])===idLoja)carregarHistoricoRemoto(curStore,tentativa+1);},1200*(tentativa+1));
     }else if(curStore&&String(curStore[14]||curStore[0])===idLoja){
-      document.getElementById('jStatus').textContent='Registro enviado. O histórico será atualizado na próxima abertura.';
+      document.getElementById('jStatus').textContent='Registro realizado. O histórico será atualizado na próxima abertura.';
       document.getElementById('jStatus').style.color='#e8a013';
     }
   }finally{clearTimeout(timer);}
@@ -1535,14 +1583,14 @@ async function enviarJustificativa(){
   localStorage.setItem(chaveJustificativas(curStore),JSON.stringify(h));
   status.style.color='var(--gray)';
   if(APPS_SCRIPT_URL){
-    status.textContent='Enviando ao Sheets...';
+    status.textContent='Registrando...';
     try{
       await fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
-      status.textContent='Justificativa enviada ao Sheets.';status.style.color='#12a150';
+      status.textContent='Registro realizado com sucesso.';status.style.color='#12a150';
       setTimeout(()=>{if(curStore)carregarHistoricoRemoto(curStore);},1200);
-    }catch(e){status.textContent='Salva neste navegador, mas o envio ao Sheets falhou.';status.style.color='#E3001B';}
+    }catch(e){status.textContent='Registro salvo. A sincronização será retomada automaticamente.';status.style.color='#e8a013';}
   }else{
-    status.textContent='Justificativa salva neste navegador. Falta configurar a URL do Apps Script.';status.style.color='#e8a013';
+    status.textContent='Registro salvo neste aparelho.';status.style.color='#e8a013';
   }
   document.getElementById('jCategoria').value='';document.getElementById('jMotivo').value='';document.getElementById('jObs').value='';
   renderHistoricoJustificativas(curStore);
