@@ -565,8 +565,11 @@
   #v-carteira .filterbar{order:2;border-radius:18px;padding:14px;gap:9px;margin:13px 0 0;background:#fff;border:1px solid #e7e8ec;box-shadow:0 5px 18px rgba(22,24,31,.045)}
   #v-carteira #simPanel{order:3}#v-carteira #atkOut{order:4}
   #v-carteira .fb-hidden{display:none}
+  #v-carteira .exec-coord-filter{display:none}
+  body.access-exec #v-carteira main>section>.filterbar{order:0;margin:0 0 13px}
+  body.access-exec #v-carteira .exec-coord-filter{display:flex}
   #v-carteira .filterbar .fb-item label{color:#69707b}
-  #v-carteira .filterbar .fb-item input{background:#f5f6f8;color:var(--ink);border-color:#e2e5e9}
+  #v-carteira .filterbar .fb-item select,#v-carteira .filterbar .fb-item input{background:#f5f6f8;color:var(--ink);border-color:#e2e5e9}
   #v-carteira .filterbar .fb-item input::placeholder{color:#969ca6}
   #v-carteira .filterbar .fb-clear{color:#5f6671;border-color:#dfe2e7;background:#fff}
   #v-carteira .fb-item label{font-family:'Montserrat',sans-serif;font-size:9px}
@@ -880,9 +883,10 @@
   <main>
     <section class="rv" style="padding-top:28px">
       <div class="filterbar">
-        <div class="fb-hidden" aria-hidden="true"><select id="fExec" onchange="fChange('exec')"><option value="">Sua região</option></select><select id="fCoord" onchange="fChange('coord')"><option value="">Todas da região</option></select></div>
+        <div class="fb-hidden" aria-hidden="true"><select id="fExec" onchange="fChange('exec')"><option value="">Sua região</option></select></div>
+        <div class="fb-item exec-coord-filter" id="execCoordFilter"><label>Coordenador</label><select id="fCoord" onchange="fChange('coord')"><option value="">Todos os coordenadores</option></select></div>
         <div class="fb-item" style="flex:1.4"><label>Encontrar uma loja</label><input id="simQ" type="search" placeholder="Busque por loja, setor ou rede" autocomplete="off"></div>
-        <button class="fb-clear" onclick="fClear()">Limpar busca</button>
+        <button class="fb-clear" id="fClearButton" onclick="fClear()">Limpar busca</button>
       </div>
       <div class="card">
         <div id="simCount" class="sim-count" style="text-align:right;margin-bottom:4px"></div>
@@ -1008,6 +1012,10 @@ function prepararFiltrosAcesso(){
   }else{
     selCoord.disabled=false;selCoord.value='';
   }
+  const executivo=ACESSO_ATUAL.perfil!=='Coordenador';
+  document.body.classList.toggle('access-exec',executivo);
+  document.getElementById('execCoordFilter').setAttribute('aria-hidden',executivo?'false':'true');
+  document.getElementById('fClearButton').textContent=executivo?'Limpar filtros':'Limpar busca';
   simQ.value='';pulsoInicializado=false;
 }
 function renderPulsoAcesso(){
@@ -1202,8 +1210,7 @@ function fClear(){
   simQ.value='';simList.classList.remove('open');secSum.classList.remove('show');
   simPanel.style.display='none';simCount.textContent='';aggPanel.innerHTML='';
   if(ACESSO_ATUAL&&ACESSO_ATUAL.perfil==='Coordenador')renderCoordView(norm((ACESSO_ATUAL.nomes||[])[0]||''));
-  else if(fCoordVal())renderCoordView(fCoordVal());
-  else if(ACESSO_ATUAL)renderExecView(norm((ACESSO_ATUAL.nomes||[])[0]||''));
+  else if(ACESSO_ATUAL){document.getElementById('fCoord').value='';renderExecView(norm((ACESSO_ATUAL.nomes||[])[0]||''));}
 }
 simQ.addEventListener('input',()=>{
   const q=norm(simQ.value.trim());
